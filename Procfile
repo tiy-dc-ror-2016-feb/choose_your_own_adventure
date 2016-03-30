@@ -1,1 +1,1 @@
-web: bundle exec rackup backend/config.ru
+web: bundle exec rackup server/config.ru
