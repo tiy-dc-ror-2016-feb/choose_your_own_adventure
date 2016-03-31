@@ -29,7 +29,7 @@
                 <ul>
                     <!-- example item
                     <li>
-                        My New Story [<a href='#' class='edit-story'>edit</a>]
+                        My New Story [<a href='#...storyId...' class='edit-story'>edit</a>]
                     </li>
                     -->
                 </ul>
@@ -47,6 +47,7 @@
                 <h2>Editing Story: <span class='story-name'></span></h2>
 
                 <form class='create-story-step'>
+                    <input type='hidden' class='story-id' value=''>
                     <h3>New Step</h3>
                     <fieldset>
                         <h4>Step Text</h4>
@@ -71,32 +72,33 @@
 
                 <h3>Current Steps</h3>
                 <ul>
-                    <!-- example step 
+                    <!-- example step
                     <li>
                         <h4>Step ID: <span class='step-id'></span></h4>
                         <form class='edit-story-step'>
+                            <input type='hidden' class='story-id' value=''>
                             <fieldset>
                                 <h4>Step Text</h4>
-                                <textarea id='new-step-text'></textarea>
+                                <textarea class='new-step-text'></textarea>
                             </fieldset>
                             <fieldset>
                                 <div>
                                     <label for='new-step-option-a'>Option A Text</label>
-                                    <input type='text' id='new-step-option-a'>
+                                    <input type='text' class='new-step-option-a'>
                                 </div>
                                 <div>
                                     <label for='new-step-option-a'>Option A Next Step</label>
-                                    <input type='text' id='new-step-option-a-next'>
+                                    <input type='text' class='new-step-option-a-next'>
                                 </div>
                             </fieldset>
                             <fieldset>
                                 <div>
                                     <label for='new-step-option-b'>Option B</label>
-                                    <input type='text' id='new-step-option-b'>
+                                    <input type='text' class='new-step-option-b'>
                                 </div>
                                 <div>
                                     <label for='new-step-option-b'>Option B Next Step</label>
-                                    <input type='text' id='new-step-option-b-next'>
+                                    <input type='text' class='new-step-option-b-next'>
                                 </div>
                             </fieldset>
                             <fieldset>
