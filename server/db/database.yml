@@ -1,0 +1,17 @@
+postgres_defaults: &postgres_defaults
+  encoding: utf8
+  template: template0
+  host: localhost
+  adapter: postgresql
+
+development:
+  <<: *postgres_defaults
+  database: create_your_own_adventure
+  username: rposborne
+  password: iamthedefaultpassword
+
+test:
+  <<: *postgres_defaults
+  database: create_your_own_adventure_test
+  username: rposborne
+  password: iamthedefaultpassword
