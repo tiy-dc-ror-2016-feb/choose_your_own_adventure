@@ -1,10 +1,39 @@
-require 'bundler/setup'
+require "bundler/setup"
+require "active_record"
 
-require 'active_record'
+class String
+  def snake_case
+    self.gsub(/::/, '/').
+      gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').
+      gsub(/([a-z\d])([A-Z])/,'\1_\2').
+      tr("-", "_").
+      downcase
+  end
+end
 
-task :default => :test
+task default: :test
 task :test do
-  Dir.glob('./tests/*_test.rb').each { |file| require file}
+  Dir.glob("./test/*_test.rb").each { |file| require file }
+end
+
+desc "Generate migration"
+namespace :generate do
+  task :migration do |name|
+    name = ARGV.pop.classify
+    timenumber = Time.now.strftime "%Y%m%d%H%M%S"
+    file = "db/migrations/#{timenumber}_#{name.snake_case}_migration.rb"
+
+    File.open file, "w" do |f|
+      f.puts %(
+class #{name}Migration < ActiveRecord::Migration
+  def change
+  end
+end).strip
+    end
+
+    puts "Generated #{file}"
+    exit # otherwise rake will try to run the other arguments
+  end
 end
 
 # Temporary switch to blank rake app, extract required tasks and import them to

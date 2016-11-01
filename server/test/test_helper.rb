@@ -2,7 +2,6 @@
 # ensure this file is included
 ENV["RACK_ENV"] = "test"
 
-require "rubygems"
 require "bundler/setup"
 
 begin
@@ -11,6 +10,8 @@ rescue LoadError
 end
 
 require "minitest/autorun"
+require "minitest/pride"
+require "minitest/focus"
 require "rack/test"
 
-require_relative "../app"
+require_relative "../lib/app"
